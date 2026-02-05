@@ -1,221 +1,1288 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escala PAFAS - Formulario para Padres</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; min-height: 100vh; }
-        .container { max-width: 900px; margin: 0 auto 40px; background: white; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); overflow: hidden; }
-        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; }
-        .header h1 { font-size: 28px; margin-bottom: 10px; }
-        .header p { font-size: 16px; opacity: 0.9; }
-        .form-content { padding: 40px; }
-        .info-section { background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 30px; border-left: 4px solid #667eea; }
-        .info-section h3 { color: #333; margin-bottom: 10px; font-size: 18px; }
-        .info-section p { color: #666; line-height: 1.6; margin-bottom: 8px; }
-        .datos-personales { background: #fff; padding: 25px; border-radius: 10px; margin-bottom: 30px; border: 2px solid #e9ecef; }
-        .datos-personales h3 { color: #333; margin-bottom: 20px; font-size: 20px; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; color: #333; font-weight: 500; }
-        .form-group input, .form-group select { width: 100%; padding: 12px; border: 2px solid #e9ecef; border-radius: 8px; font-size: 16px; transition: border-color 0.3s; }
-        .form-group input:focus, .form-group select:focus { outline: none; border-color: #667eea; }
-        .question-block { background: #fff; padding: 25px; margin-bottom: 20px; border-radius: 10px; border: 2px solid #e9ecef; transition: all 0.3s; }
-        .question-block:hover { border-color: #667eea; box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1); }
-        .question-number { background: #667eea; color: white; width: 35px; height: 35px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 10px; font-size: 14px; }
-        .question-text { font-size: 17px; color: #333; margin-bottom: 20px; line-height: 1.6; }
-        .options-container { display: flex; flex-direction: column; gap: 12px; }
-        .option-label { display: flex; align-items: center; padding: 15px; background: #f8f9fa; border-radius: 8px; cursor: pointer; transition: all 0.3s; border: 2px solid transparent; }
-        .option-label:hover { background: #e9ecef; border-color: #667eea; }
-        .option-label input[type="radio"] { width: 20px; height: 20px; margin-right: 12px; cursor: pointer; accent-color: #667eea; }
-        .option-label span { font-size: 15px; color: #555; flex: 1; }
-        .option-label input[type="radio"]:checked + span { color: #667eea; font-weight: 600; }
-        .submit-section { margin-top: 40px; text-align: center; padding: 30px; background: #f8f9fa; border-radius: 10px; }
-        .submit-btn { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 18px 50px; font-size: 18px; font-weight: bold; border-radius: 50px; cursor: pointer; transition: all 0.3s; box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3); }
-        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4); }
-        .submit-btn:disabled { background: #ccc; cursor: not-allowed; transform: none; }
-        .error-message { color: #dc3545; font-size: 14px; margin-top: 5px; display: none; }
-        .loading { display: none; text-align: center; padding: 20px; }
-        .loading-spinner { border: 4px solid #f3f3f3; border-top: 4px solid #667eea; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto 10px; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .required { color: #dc3545; }
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Battelle - Profesores</title>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .alumno-info {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .alumno-info p {
+            margin: 5px 0;
+            font-size: 1em;
+        }
+
+        .age-input-section {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .age-input-section label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .age-input-section input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        .age-input-section button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 12px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .age-input-section button:hover {
+            background: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .bloque {
+            margin-bottom: 30px;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .bloque-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .bloque-content {
+            padding: 20px;
+        }
+
+        .seccion-title {
+            font-size: 1.2em;
+            color: #667eea;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .item {
+            background: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .item-pregunta {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .item-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .opciones {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .radio-option {
+            flex: 1;
+            min-width: 80px;
+        }
+
+        .radio-option input[type="radio"] {
+            display: none;
+        }
+
+        .radio-option label {
+            display: block;
+            padding: 12px 20px;
+            background: #f0f0f0;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .radio-option input[type="radio"]:checked + label {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .radio-option.opt-2 label {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .radio-option.opt-2 input[type="radio"]:checked + label {
+            background: #28a745;
+            color: white;
+        }
+
+        .radio-option.opt-1 label {
+            background: #fff3cd;
+            border-color: #ffc107;
+            color: #856404;
+        }
+
+        .radio-option.opt-1 input[type="radio"]:checked + label {
+            background: #ffc107;
+            color: white;
+        }
+
+        .radio-option.opt-0 label {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .radio-option.opt-0 input[type="radio"]:checked + label {
+            background: #dc3545;
+            color: white;
+        }
+
+        .observaciones {
+            margin-top: 10px;
+        }
+
+        .observaciones label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .observaciones textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            resize: vertical;
+            min-height: 60px;
+            font-family: inherit;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn-validate {
+            background: linear-gradient(135deg, #ff9800 0%, #ff5722 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+            margin-bottom: 15px;
+        }
+
+        .btn-validate:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 152, 0, 0.6);
+        }
+
+        .btn-validate:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-submit:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .btn-next-block {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+        }
+
+        .btn-next-block:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6);
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #f5c6cb;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #c3e6cb;
+            margin: 20px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
         @media (max-width: 768px) {
-            body { padding: 10px; }
-            .form-content { padding: 20px; }
-            .header h1 { font-size: 22px; }
-            .question-block { padding: 20px; }
-            .submit-btn { width: 100%; padding: 15px; }
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .opciones {
+                flex-direction: column;
+            }
+
+            .radio-option {
+                min-width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Escala de Adaptación de Crianza y Adaptación Familiar (PAFAS)</h1>
-            <p>Formulario para padres y madres</p>
-        </div>
-        <div class="form-content">
-            <div class="info-section">
-                <h3>Instrucciones</h3>
-                <p><strong>0.</strong> No es cierto en lo absoluto con respecto a mí</p>
-                <p><strong>1.</strong> Un poco o algunas veces cierto con respecto a mí</p>
-                <p><strong>2.</strong> Es muy cierto en muchas ocasiones con respecto a mí</p>
-                <p><strong>3.</strong> Es muy o en la mayoría de las veces cierto con respecto a mí</p>
-            </div>
-            <form id="pafasForm">
-                <div class="datos-personales">
-                    <h3>Datos Personales</h3>
-                    <div class="form-group">
-                        <label for="nombre">Nombre completo (Hijo/a) <span class="required">*</span></label>
-                        <input type="text" id="nombre" name="nombre" required>
-                        <div class="error-message" id="error-nombre">Por favor, ingrese su nombre</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Correo electrónico <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" required>
-                        <div class="error-message" id="error-email">Por favor, ingrese un correo válido</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="parentesco">Parentesco <span class="required">*</span></label>
-                        <select id="parentesco" name="parentesco" required>
-                            <option value="">Seleccione...</option>
-                            <option value="Madre">Madre</option>
-                            <option value="Padre">Padre</option>
-                            <option value="Tutor/a">Tutor/a</option>
-                            <option value="Otro">Otro</option>
-                        </select>
-                        <div class="error-message" id="error-parentesco">Por favor, seleccione el parentesco</div>
-                    </div>
-                </div>
-                <div id="questionsContainer"></div>
-                <div class="submit-section">
-                    <button type="submit" class="submit-btn" id="submitBtn">Enviar Formulario</button>
-                    <div class="loading" id="loading">
-                        <div class="loading-spinner"></div>
-                        <p>Enviando respuestas...</p>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    <script>
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxdD4c8NOTS1A0TLPvA5XG3rD8NwwUQaYuYW398YHGTldInXPcnsiauJkYxfNd5SUYu/exec';
-        const cuestionario = {"data":[{"bloque":"Escala de adaptación de crianza y adaptación familiar (PAFAS)","clasificacion":["0. No es cierto en lo absoluto con respecto a mí","1. Un poco o algunas veces cierto con respecto a mí","2. Es muy cierto en muchas ocasiones con respecto a mí","3. Es muy o en la mayoría de las veces cierto con respecto a mí"],"items":[{"id":1,"pregunta":"1. Me rindo y realizo la faena yo mismo/a si mi hijo/a no hace lo que le pido.","respuestas":[0,1,2,3]},{"id":2,"pregunta":"2. Complazo a mi hijo/a con un premio o actividad de diversión por haberse portado bien.","respuestas":[0,1,2,3]},{"id":3,"pregunta":"3. Amenazo a mi hijo/a con algo (por ejemplo, que apague la TV) por su mal comportamiento, pero después no cumplo con la amenaza.","respuestas":[0,1,2,3]},{"id":4,"pregunta":"4. Grito o me enojo con mi hijo/a cuando él/ella se porta mal.","respuestas":[0,1,2,3]},{"id":5,"pregunta":"5. Alabo a mi hijo/a cuando se porta bien.","respuestas":[0,1,2,3]},{"id":6,"pregunta":"6. Hago sentir mal o culpable a mi hijo/a a propósito por portarse mal para darle una lección.","respuestas":[0,1,2,3]},{"id":7,"pregunta":"7. Le doy atención a mi hijo/a con un abrazo, un guiño de ojo, sonrisa o beso cuando él/ella se porta bien.","respuestas":[0,1,2,3]},{"id":8,"pregunta":"8. Le doy unas nalgadas a mi hijo/a cuando se porta mal.","respuestas":[0,1,2,3]},{"id":9,"pregunta":"9. Discuto con mi hijo/a sobre su mal comportamiento o actitud.","respuestas":[0,1,2,3]},{"id":10,"pregunta":"10. Cedo ante las demandas de mi hijo/a cuando él/ella se disgusta o altera.","respuestas":[0,1,2,3]},{"id":11,"pregunta":"11. Me enojo con mi hijo/a.","respuestas":[0,1,2,3]},{"id":12,"pregunta":"12. Converso con mi hijo/a.","respuestas":[0,1,2,3]},{"id":13,"pregunta":"13. Disfruto con abrazar, besar y acurrucar a mi hijo/a.","respuestas":[0,1,2,3]},{"id":14,"pregunta":"14. Estoy orgulloso/a de mi hijo/a.","respuestas":[0,1,2,3]},{"id":15,"pregunta":"15. Disfruto pasar tiempo con mi hijo/a.","respuestas":[0,1,2,3]},{"id":16,"pregunta":"16. Tengo una buena relación con mi hijo/a.","respuestas":[0,1,2,3]},{"id":17,"pregunta":"17. Me siento estresado/a o preocupado/a.","respuestas":[0,1,2,3]},{"id":18,"pregunta":"18. Me siento feliz.","respuestas":[0,1,2,3]},{"id":19,"pregunta":"19. Me siento triste o deprimido/a.","respuestas":[0,1,2,3]},{"id":20,"pregunta":"20. Me siento satisfecho/a con mi vida.","respuestas":[0,1,2,3]},{"id":21,"pregunta":"21. Sobrellevo las exigencias emocionales de ser padre/madre.","respuestas":[0,1,2,3]},{"id":22,"pregunta":"22. Los miembros de nuestra familia se ayudan y apoyan unos a otros.","respuestas":[0,1,2,3]},{"id":23,"pregunta":"23. Los miembros de nuestra familia se llevan bien entre sí.","respuestas":[0,1,2,3]},{"id":24,"pregunta":"24. Los miembros de nuestra familia pelean o discuten.","respuestas":[0,1,2,3]},{"id":25,"pregunta":"25. Los miembros de nuestra familia se critican entre sí.","respuestas":[0,1,2,3]},{"id":26,"pregunta":"26. ¿Usted se encuentra en una relación de pareja actualmente?","respuestas":["Sí","No"]},{"id":27,"pregunta":"27. Trabajo como un equipo con mi pareja en la crianza.","requiere_pareja":true,"respuestas":[0,1,2,3]},{"id":28,"pregunta":"28. Estoy en desacuerdo con mi pareja sobre la crianza.","requiere_pareja":true,"respuestas":[0,1,2,3]},{"id":29,"pregunta":"29. Tengo una buena relación con mi pareja.","requiere_pareja":true,"respuestas":[0,1,2,3]}]}]};
+<div class="container" id="app-container">
+<!-- El contenido se generará dinámicamente -->
+</div>
+<!-- Iframe oculto para envío por formulario (evita CORS con  Apps Script) -->
+<iframe name="battelle-submit-iframe" id="battelle-submit-iframe" style="display:none; width:0; height:0; border:0;" title="Envío de datos"></iframe>
 
-        function generarPreguntas() {
-            const container = document.getElementById('questionsContainer');
-            const items = cuestionario.data[0].items;
-            items.forEach(item => {
-                const questionDiv = document.createElement('div');
-                questionDiv.className = 'question-block';
-                questionDiv.id = `question-${item.id}`;
-                if (item.requiere_pareja) questionDiv.style.display = 'none';
-                let optionsHtml = '';
-                if (item.id === 26) {
-                    optionsHtml = `<div class="options-container">
-                        <label class="option-label"><input type="radio" name="q${item.id}" value="Sí" onchange="toggleParejaQuestions('Sí')" required><span>Sí</span></label>
-                        <label class="option-label"><input type="radio" name="q${item.id}" value="No" onchange="toggleParejaQuestions('No')" required><span>No</span></label>
-                    </div>`;
-                } else {
-                    const clasificacion = cuestionario.data[0].clasificacion;
-                    optionsHtml = '<div class="options-container">';
-                    item.respuestas.forEach((valor, index) => {
-                        const req = item.requiere_pareja ? '' : 'required';
-                        optionsHtml += `<label class="option-label"><input type="radio" name="q${item.id}" value="${valor}" ${req}><span>${clasificacion[index]}</span></label>`;
-                    });
-                    optionsHtml += '</div>';
-                }
-                questionDiv.innerHTML = `<div class="question-text"><span class="question-number">${item.id}</span>${item.pregunta}</div>${optionsHtml}`;
-                container.appendChild(questionDiv);
-            });
-        }
 
-        function toggleParejaQuestions(value) {
-            const parejaQuestions = [27, 28, 29];
-            parejaQuestions.forEach(id => {
-                const questionDiv = document.getElementById(`question-${id}`);
-                if (questionDiv) {
-                    questionDiv.style.display = value === 'Sí' ? 'block' : 'none';
-                    const radios = questionDiv.querySelectorAll('input[type="radio"]');
-                    radios.forEach(radio => {
-                        radio.checked = false;
-                        if (value === 'Sí') {
-                            radio.setAttribute('required', 'required');
-                        } else {
-                            radio.removeAttribute('required');
-                        }
-                    });
-                }
-            });
-        }
+<!-- CONFIGURACIÓN GOOGLE SHEETS -->
+<script>
+// ========================================
+// IMPORTANTE: Reemplaza con tu URL de Google Apps Script
+// ========================================
+window.SHEETS_ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbzV0rTuGWATpSfKwvXCXtvyd0_h3YG_HaQar94Qm0UWWQmTf9uOqEMw89p4AndG28hB/exec';
+console.log('[Battelle] URL configurada:', window.SHEETS_ENDPOINT_URL);
+</script>
 
-        function validarFormulario() {
-            let valido = true;
-            ['nombre', 'email','parentesco'].forEach(campo => {
-                const input = document.getElementById(campo);
-                const error = document.getElementById(`error-${campo}`);
-                if (!input.value.trim()) {
-                    error.style.display = 'block';
-                    input.style.borderColor = '#dc3545';
-                    valido = false;
-                } else {
-                    error.style.display = 'none';
-                    input.style.borderColor = '#e9ecef';
-                }
-            });
-            cuestionario.data[0].items.forEach(item => {
-                const questionDiv = document.getElementById(`question-${item.id}`);
-                if (questionDiv && questionDiv.style.display !== 'none') {
-                    const radios = document.getElementsByName(`q${item.id}`);
-                    const checked = Array.from(radios).some(radio => radio.checked);
-                    questionDiv.style.borderColor = checked ? '#e9ecef' : '#dc3545';
-                    if (!checked) valido = false;
-                }
-            });
-            return valido;
-        }
+<!-- =========================
+     STEP 0 + CONFIG (editable)
+     ========================= -->
+<script>
+  // =====================
+  // CONFIG (editable)
+  // =====================
+    // =====================
+  // CONFIG (editable)
+  // =====================
+  const GOOGLE_SHEET_URL = "https://docs.google.com/spreadsheets/d/1pRwUb_GufOASACZaOAHVB7stVSgr3sMfwgotY7gJfls/edit?gid=0#gid=0";     // <- (opcional) URL del Google Sheet (solo referencia/debug)
+  const SHEETS_ENDPOINT_URL = "https://script.google.com/macros/s/AKfycbzV0rTuGWATpSfKwvXCXtvyd0_h3YG_HaQar94Qm0UWWQmTf9uOqEMw89p4AndG28hB/exec";  // <- (opcional) URL del Web App (Apps Script) para guardar resultados
+  const DEBUG = false;
+  // Para que el cuestionario use este endpoint al enviar (p. ej. en GitHub Pages)
+  if (typeof SHEETS_ENDPOINT_URL === "string" && SHEETS_ENDPOINT_URL.length > 0) {
+    window.SHEETS_ENDPOINT_URL = SHEETS_ENDPOINT_URL;
+  }
 
-        document.getElementById('pafasForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            if (!validarFormulario()) {
-                alert('Por favor, complete todos los campos requeridos.');
+
+  // Lista de alumnos (edita manualmente)
+  // ageMonths: edad en meses (número)
+  const STUDENTS = [
+    { id: "SR12", full_name: "Santiago Rull de la Serra", ageMonths: 31, className: "B" },
+         { id: "SR11", full_name: "Sofía del Pilar Mowinckel Guerra", ageMonths: 25, className: "B" },
+         { id: "SR10", full_name: "Atennea Anna Borges Dacko", ageMonths: 31, className: "B" },
+         {id: "SR9", full_name: "Manuela Albendea", ageMonths: 31, className: "B" },
+         {id: "SR8", full_name: "Clara Molina Montero", ageMonths: 25, className: "B" },
+         {id: "SR7", full_name: "Alberto Cáceres Francu", ageMonths: 26, className: "B" },
+         {id: "SR6", full_name: "Julia Salinero Andrade", ageMonths: 27, className: "B" },
+         
+         
+         
+         
+         
+  ];
+
+  // Contexto base para que el cuestionario funcione en GitHub Pages (sin backend)
+  window.EMOOTI_CONTEXT = window.EMOOTI_CONTEXT || {};
+  window.EMOOTI_CONTEXT.test_name = window.EMOOTI_CONTEXT.test_name || "Battelle - Profesores";
+  window.EMOOTI_CONTEXT.configuration = window.EMOOTI_CONTEXT.configuration || null;
+  window.EMOOTI_CONTEXT.students = window.EMOOTI_CONTEXT.students || STUDENTS;
+  // No fijamos student aquí: se elegirá en el Step 0.
+</script>
+<script id="BATTELLE_CONFIG_JSON" type="application/json">
+{"data": [{"bloque": "Personal/Social", "items": [{"id": "1", "seccion": "1", "pregunta": "Muestra conocimiento de sus manos", "umbral": "0-5", "respuestas": ["2", "1", "0"]}, {"id": "2", "seccion": "1", "pregunta": "Muestra deseos por ser cogido en brazos por una persona conocida", "umbral": "0-5", "respuestas": ["2", "1", "0"]}, {"id": "3", "seccion": "2", "pregunta": "Participa en juegos como el escondite", "umbral": "6-11", "respuestas": ["2", "1", "0"]}, {"id": "4", "seccion": "2", "pregunta": "Responde a su nombre", "umbral": "6-11", "respuestas": ["2", "1", "0"]}, {"id": "5", "seccion": "3", "pregunta": "Inicia contacto social con sus compañeros", "umbral": "12-17", "respuestas": ["2", "1", "0"]}, {"id": "6", "seccion": "3", "pregunta": "Imita a otro niño", "umbral": "12-17", "respuestas": ["2", "1", "0"]}, {"id": "7", "seccion": "4", "pregunta": "Sigue normas de la vida cotidiana", "umbral": "18-23", "respuestas": ["2", "1", "0"]}, {"id": "8", "seccion": "4", "pregunta": "Juega solo junto a otros compañeros", "umbral": "18-23", "respuestas": ["2", "1", "0"]}, {"id": "9", "seccion": "5", "pregunta": "Conoce su nombre", "umbral": "24-35", "respuestas": ["2", "1", "0"]}, {"id": "10", "seccion": "5", "pregunta": "Utiliza un pronombre o su nombre para referirse a sí mismo", "umbral": "24-35", "respuestas": ["2", "1", "0"]}, {"id": "11", "seccion": "6", "pregunta": "Reconoce las diferencias entre un hombre y una mujer", "umbral": "36-47", "respuestas": ["2", "1", "0"]}, {"id": "12", "seccion": "6", "pregunta": "Responde al contacto social con los adultos conocidos", "umbral": "36-47", "respuestas": ["2", "1", "0"]}, {"id": "13", "seccion": "7", "pregunta": "Describe sus sentimientos", "umbral": "48-59", "respuestas": ["2", "1", "0"]}, {"id": "14", "seccion": "7", "pregunta": "Escoge a sus amigos", "umbral": "48-59", "respuestas": ["2", "1", "0"]}, {"id": "15", "seccion": "8", "pregunta": "Participa en juegos competitivos", "umbral": "60-71", "respuestas": ["2", "1", "0"]}, {"id": "16", "seccion": "8", "pregunta": "Distingue las conductas aceptables de las no aceptables", "umbral": "60-71", "respuestas": ["2", "1", "0"]}, {"id": "17", "seccion": "9", "pregunta": "Actúa como líder en las relaciones con los compañeros", "umbral": "72-83", "respuestas": ["2", "1", "0"]}, {"id": "18", "seccion": "9", "pregunta": "Pide ayuda al adulto cuando lo necesita", "umbral": "72-83", "respuestas": ["2", "1", "0"]}, {"id": "19", "seccion": "10", "pregunta": "Utiliza al adulto para defenderse", "umbral": "84-95", "respuestas": ["2", "1", "0"]}, {"id": "20", "seccion": "10", "pregunta": "Reconoce la responsabilidad de sus errores", "umbral": "84-95", "respuestas": ["2", "1", "0"]}]}, {"bloque": "Adaptativa", "items": [{"id": "21", "seccion": "1", "pregunta": "Come papilla con cuchara", "umbral": "0-5", "respuestas": ["2", "1", "0"]}, {"id": "22", "seccion": "1", "pregunta": "Presta atención a un sonido continuo", "umbral": "0-5", "respuestas": ["2", "1", "0"]}, {"id": "23", "seccion": "2", "pregunta": "Sostiene su biberón", "umbral": "6-11", "respuestas": ["2", "1", "0"]}, {"id": "24", "seccion": "2", "pregunta": "Come trocitos de comida", "umbral": "6-11", "respuestas": ["2", "1", "0"]}, {"id": "25", "seccion": "3", "pregunta": "Comienza a usar la cuchara o el tenedor para comer", "umbral": "12-17", "respuestas": ["2", "1", "0"]}, {"id": "26", "seccion": "3", "pregunta": "Se quita prendas de ropa pequeñas", "umbral": "12-17", "respuestas": ["2", "1", "0"]}, {"id": "27", "seccion": "4", "pregunta": "Distingue lo comestible de lo no comestible", "umbral": "18-23", "respuestas": ["2", "1", "0"]}, {"id": "28", "seccion": "4", "pregunta": "Se quita una prenda de ropa", "umbral": "18-23", "respuestas": ["2", "1", "0"]}, {"id": "29", "seccion": "5", "pregunta": "Indica la necesidad de ir al baño", "umbral": "24-35", "respuestas": ["2", "1", "0"]}, {"id": "30", "seccion": "5", "pregunta": "Obtiene el agua del grifo", "umbral": "24-35", "respuestas": ["2", "1", "0"]}, {"id": "31", "seccion": "6", "pregunta": "Se abrocha uno o dos botones", "umbral": "36-47", "respuestas": ["2", "1", "0"]}, {"id": "32", "seccion": "6", "pregunta": "Duerme sin mojar la cama", "umbral": "36-47", "respuestas": ["2", "1", "0"]}, {"id": "33", "seccion": "7", "pregunta": "Se viste y se desnuda", "umbral": "48-59", "respuestas": ["2", "1", "0"]}, {"id": "34", "seccion": "7", "pregunta": "Completa tareas de dos acciones", "umbral": "48-59", "respuestas": ["2", "1", "0"]}, {"id": "35", "seccion": "8", "pregunta": "Va al colegio solo", "umbral": "60-71", "respuestas": ["2", "1", "0"]}, {"id": "36", "seccion": "8", "pregunta": "Contesta preguntas del tipo “¿Qué harías si…?”", "umbral": "60-71", "respuestas": ["2", "1", "0"]}, {"id": "37", "seccion": "9", "pregunta": "Conoce su dirección", "umbral": "72-83", "respuestas": ["2", "1", "0"]}, {"id": "38", "seccion": "9", "pregunta": "Utiliza el teléfono", "umbral": "72-83", "respuestas": ["2", "1", "0"]}, {"id": "39", "seccion": "10", "pregunta": "Maneja pequeñas cantidades de dinero", "umbral": "84-95", "respuestas": ["2", "1", "0"]}, {"id": "40", "seccion": "10", "pregunta": "Realiza tareas domésticas", "umbral": "84-95", "respuestas": ["2", "1", "0"]}]}, {"bloque": "Comunicacion", "items": [{"id": "61", "seccion": "1", "subseccion": "Comunicacion Receptiva", "pregunta": "Vuelve la cabeza hacia un sonido", "umbral": "0-5", "respuestas": ["2", "1", "0"]}, {"id": "62", "seccion": "1", "subseccion": "Comunicacion Expresiva", "pregunta": "Emite sonidos para expresar su estado de ánimo", "umbral": "0-5", "respuestas": ["2", "1", "0"]}, {"id": "63", "seccion": "2", "subseccion": "Comunicacion Receptiva", "pregunta": "Asocia palabras con acciones u objetos", "umbral": "6-11", "respuestas": ["2", "1", "0"]}, {"id": "64", "seccion": "2", "subseccion": "Comunicacion Expresiva", "pregunta": "Emite sonidos consonante-vocal", "umbral": "6-11", "respuestas": ["2", "1", "0"]}, {"id": "65", "seccion": "3", "subseccion": "Comunicacion Receptiva", "pregunta": "Sigue órdenes acompañadas de gestos", "umbral": "12-23", "respuestas": ["2", "1", "0"]}, {"id": "66", "seccion": "3", "subseccion": "Comunicacion Expresiva", "pregunta": "Utiliza diez o más palabras", "umbral": "12-23", "respuestas": ["2", "1", "0"]}, {"id": "67", "seccion": "4", "subseccion": "Comunicacion Receptiva", "pregunta": "Comprende los conceptos “dentro, fuera, encima, delante, detrás, hacia”", "umbral": "24-35", "respuestas": ["2", "1", "0"]}, {"id": "68", "seccion": "4", "subseccion": "Comunicacion Expresiva", "pregunta": "Utiliza los pronombres yo, tú, y, mi", "umbral": "24-35", "respuestas": ["2", "1", "0"]}, {"id": "69", "seccion": "5", "subseccion": "Comunicacion Receptiva", "pregunta": "Sigue órdenes verbales que implican dos acciones", "umbral": "36-47", "respuestas": ["2", "1", "0"]}, {"id": "70", "seccion": "5", "subseccion": "Comunicacion Expresiva", "pregunta": "Utiliza el plural terminado en “s”", "umbral": "36-47", "respuestas": ["2", "1", "0"]}, {"id": "71", "seccion": "6", "subseccion": "Comunicacion Receptiva", "pregunta": "Comprende el plural", "umbral": "48-59", "respuestas": ["2", "1", "0"]}, {"id": "72", "seccion": "6", "subseccion": "Comunicacion Expresiva", "pregunta": "Utiliza frases de 5 a 8 palabras", "umbral": "48-59", "respuestas": ["2", "1", "0"]}, {"id": "73", "seccion": "7", "subseccion": "Comunicacion Receptiva", "pregunta": "Comprende el futuro de los verbos ser y estar", "umbral": "60-71", "respuestas": ["2", "1", "0"]}, {"id": "74", "seccion": "7", "subseccion": "Comunicacion Expresiva", "pregunta": "Utiliza el comparativo", "umbral": "60-71", "respuestas": ["2", "1", "0"]}, {"id": "75", "seccion": "8", "subseccion": "Comunicacion Receptiva", "pregunta": "Reconoce palabras que no pertenecen a una categoría", "umbral": "72-83", "respuestas": ["2", "1", "0"]}, {"id": "76", "seccion": "8", "subseccion": "Comunicacion Expresiva", "pregunta": "Habla sobre cosas que pueden suceder", "umbral": "72-83", "respuestas": ["2", "1", "0"]}, {"id": "77", "seccion": "9", "subseccion": "Comunicacion Receptiva", "pregunta": "Comprende los conceptos “dulce, duro, brillante”", "umbral": "84-95", "respuestas": ["2", "1", "0"]}, {"id": "78", "seccion": "9", "subseccion": "Comunicacion Expresiva", "pregunta": "Define palabras", "umbral": "84-95", "respuestas": ["2", "1", "0"]}]}]}
+</script>
+<script>
+/**
+ * Plugin (NO toca tu lógica): aplaza el init original (DOMContentLoaded)
+ * hasta que el usuario seleccione alumno.
+ */
+(function(){
+  const origAdd = window.addEventListener.bind(window);
+  const domReadyQueue = [];
+  window.__BATTELLE__ = window.__BATTELLE__ || {};
+  window.__BATTELLE__.domReadyQueue = domReadyQueue;
+  window.__BATTELLE__.restoreAddEventListener = function(){
+    window.addEventListener = origAdd;
+  };
+
+  window.addEventListener = function(type, listener, options){
+    if(type === "DOMContentLoaded"){
+      domReadyQueue.push({ listener, options });
+      return;
+    }
+    return origAdd(type, listener, options);
+  };
+})();
+</script>
+<script>
+    (function() {
+        'use strict';
+
+        // ============================================
+        // VARIABLES GLOBALES
+        // ============================================
+        let context = null;
+        let config = null;
+        let studentData = null;
+        let submitUrl = null;
+        let testStartTimestamp = Date.now();
+        let testLinkWithParams = '';
+        let testName = '';
+        let ageInMonths = null;
+
+        // Estructura de datos
+        let blocksData = [];
+        let sectionsStructure = {};
+        let initialSection = {};
+        let responsesByBlock = {};
+        let observationsByBlock = {};
+
+        // Estado actual
+        let currentBlockIndex = 0;
+        let currentBlockName = '';
+        let currentSectionNum = null;
+        let appInitialized = false;
+        let blockCompleted = false;
+
+        // ============================================
+        // INICIALIZACIÓN
+        // ============================================
+        function init() {
+            console.log('[Battelle Profesores] Iniciando aplicación...');
+            
+            const result = getStudentAndConfig();
+            if (!result.success) {
+                showError(result.error);
                 return;
             }
-            const formData = {
-                timestamp: new Date().toISOString(),
-                nombre: document.getElementById('nombre').value,
-                email: document.getElementById('email').value,
-                parentesco: document.getElementById('parentesco').value,
-                respuestas: {}
-            };
-            cuestionario.data[0].items.forEach(item => {
-                const questionDiv = document.getElementById(`question-${item.id}`);
-                if (questionDiv && questionDiv.style.display !== 'none') {
-                    const selected = document.querySelector(`input[name="q${item.id}"]:checked`);
-                    if (selected) formData.respuestas[`pregunta_${item.id}`] = selected.value;
-                }
-            });
-            document.getElementById('submitBtn').disabled = true;
-            document.getElementById('loading').style.display = 'block';
-            try {
-                await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
-                });
-                document.getElementById('loading').style.display = 'none';
-                window.location.href = 'exito.html';
-            } catch (error) {
-                document.getElementById('loading').style.display = 'none';
-                window.location.href = 'exito.html';
-            }
-        });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            generarPreguntas();
-        });
+            console.log('[Battelle Profesores] Contexto cargado:', context);
+            console.log('[Battelle Profesores] Configuración:', config);
+            console.log('[Battelle Profesores] Alumno:', studentData);
+
+            ageInMonths = calculateAgeInMonths(studentData);
+            console.log('[Battelle Profesores] Edad calculada (meses):', ageInMonths);
+
+            if (ageInMonths === null) {
+                renderAgeInput();
+            } else {
+                initializeTest();
+            }
+        }
+
+        function getStudentAndConfig() {
+            try {
+                context = window.EMOOTI_CONTEXT;
+                if (!context) {
+                    return { success: false, error: 'No se pudo cargar el contexto EMOOTI_CONTEXT.' };
+                }
+
+                config = context.configuration;
+                if (!config) {
+                    return { success: false, error: 'No se encontró configuration en el contexto.' };
+                }
+
+                const data = config.data || (Array.isArray(config) ? config : null);
+                if (!data || data.length === 0) {
+                    return { success: false, error: 'Configuración inválida: no hay datos de prueba.' };
+                }
+
+                studentData = context.student || (context.students && context.students[0]);
+                if (!studentData) {
+                    return { success: false, error: 'No se encontraron datos del alumno.' };
+                }
+
+                testName = context.test_name || 'Battelle Profesores';
+                submitUrl = window.EMOOTI_SUBMIT_URL || window.SHEETS_ENDPOINT_URL || '/api/functions/submitEmotiTestPublic';
+                testLinkWithParams = context.test_link || window.location.href;
+
+                return { success: true };
+            } catch (error) {
+                console.error('[Battelle Profesores] Error en getStudentAndConfig:', error);
+                return { success: false, error: 'Error al procesar el contexto: ' + error.message };
+            }
+        }
+
+        function calculateAgeInMonths(student) {
+            if (!student) return null;
+
+            if (student.birth_date) {
+                try {
+                    const birthDate = new Date(student.birth_date);
+                    const today = new Date();
+                    
+                    const yearsDiff = today.getFullYear() - birthDate.getFullYear();
+                    const monthsDiff = today.getMonth() - birthDate.getMonth();
+                    
+                    return yearsDiff * 12 + monthsDiff;
+                } catch (e) {
+                    console.warn('[Battelle Profesores] Error calculando edad desde birth_date:', e);
+                }
+            }
+
+            if (student.age_in_months !== undefined) {
+                return parseInt(student.age_in_months, 10);
+            }
+
+            return null;
+        }
+
+        function renderAgeInput() {
+            const container = document.getElementById('app-container');
+            container.innerHTML = `
+                <div class="header">
+                    <h1>🧠 Battelle – Profesores</h1>
+                    <p>Cuestionario para profesorado: Personal/Social, Adaptativa y Comunicación</p>
+                    <div class="alumno-info">
+                        <p><strong>Alumno/a:</strong> ${studentData.full_name || 'No especificado'}</p>
+                        <p><strong>Fecha:</strong> ${new Date().toLocaleDateString('es-ES')}</p>
+                    </div>
+                    <div class="age-input-section">
+                        <label for="age-input">Por favor, introduce la edad del alumno/a en meses:</label>
+                        <input type="number" id="age-input" min="0" max="120" placeholder="Ej: 24">
+                        <button id="start-btn">Iniciar Evaluación</button>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('start-btn').addEventListener('click', function() {
+                const input = document.getElementById('age-input');
+                const value = parseInt(input.value, 10);
+                
+                if (isNaN(value) || value < 0) {
+                    alert('Por favor, introduce una edad válida en meses.');
+                    return;
+                }
+
+                ageInMonths = value;
+                console.log('[Battelle Profesores] Edad introducida manualmente:', ageInMonths);
+                initializeTest();
+            });
+        }
+
+        function initializeTest() {
+            console.log('[Battelle Profesores] Inicializando prueba con edad:', ageInMonths);
+            
+            buildSectionsStructureFromConfig();
+            determineInitialSections();
+            initializeResponses();
+
+            appInitialized = true;
+            currentBlockIndex = 0;
+            currentBlockName = blocksData[0].bloque;
+            currentSectionNum = initialSection[currentBlockName];
+            blockCompleted = false;
+
+            console.log('[Battelle Profesores] Iniciando con bloque:', currentBlockName, 'sección:', currentSectionNum);
+
+            renderApp();
+        }
+
+        function buildSectionsStructureFromConfig() {
+            const data = config.data;
+            blocksData = data;
+
+            data.forEach(block => {
+                const blockName = block.bloque;
+                sectionsStructure[blockName] = {};
+
+                block.items.forEach(item => {
+                    const sectionNum = parseInt(item.seccion, 10);
+                    
+                    if (!sectionsStructure[blockName][sectionNum]) {
+                        const [min, max] = item.umbral.split('-').map(v => parseInt(v, 10));
+                        sectionsStructure[blockName][sectionNum] = {
+                            umbralMin: min,
+                            umbralMax: max,
+                            items: []
+                        };
+                    }
+
+                    sectionsStructure[blockName][sectionNum].items.push(item);
+                });
+            });
+
+            console.log('[Battelle Profesores] Estructura de secciones:', sectionsStructure);
+        }
+
+        function determineInitialSections() {
+            blocksData.forEach(block => {
+                const blockName = block.bloque;
+                const sections = sectionsStructure[blockName];
+                const sectionNums = Object.keys(sections).map(k => parseInt(k, 10)).sort((a, b) => a - b);
+
+                let foundSection = null;
+
+                for (let sNum of sectionNums) {
+                    const sec = sections[sNum];
+                    if (ageInMonths >= sec.umbralMin && ageInMonths <= sec.umbralMax) {
+                        foundSection = sNum;
+                        break;
+                    }
+                }
+
+                if (foundSection === null) {
+                    const allUmbrals = sectionNums.map(sNum => sections[sNum]);
+                    const minUmbral = Math.min(...allUmbrals.map(s => s.umbralMin));
+                    const maxUmbral = Math.max(...allUmbrals.map(s => s.umbralMax));
+
+                    if (ageInMonths < minUmbral) {
+                        foundSection = sectionNums[0];
+                    } else if (ageInMonths > maxUmbral) {
+                        foundSection = sectionNums[sectionNums.length - 1];
+                    } else {
+                        foundSection = sectionNums[0];
+                    }
+                }
+
+                initialSection[blockName] = foundSection;
+                console.log(`[Battelle Profesores] Sección inicial para ${blockName}:`, foundSection);
+            });
+        }
+
+        function initializeResponses() {
+            blocksData.forEach(block => {
+                const blockName = block.bloque;
+                const sInit = initialSection[blockName];
+                
+                responsesByBlock[blockName] = {};
+                observationsByBlock[blockName] = {};
+
+                block.items.forEach(item => {
+                    const sNum = parseInt(item.seccion, 10);
+                    let initialValue = null;
+
+                    if (sNum < sInit) {
+                        initialValue = "2";
+                    } else if (sNum === sInit) {
+                        initialValue = null;
+                    } else {
+                        initialValue = "0";
+                    }
+
+                    responsesByBlock[blockName][item.id] = {
+                        value: initialValue,
+                        seccion: item.seccion,
+                        subseccion: item.subseccion || null,
+                        umbral: item.umbral
+                    };
+
+                    observationsByBlock[blockName][item.id] = '';
+                });
+            });
+
+            console.log('[Battelle Profesores] Respuestas inicializadas:', responsesByBlock);
+        }
+
+        function renderApp() {
+            const container = document.getElementById('app-container');
+            container.innerHTML = '';
+
+            const header = renderHeader();
+            container.appendChild(header);
+
+            const content = document.createElement('div');
+            content.className = 'content';
+
+            const blockView = renderBlockView();
+            content.appendChild(blockView);
+
+            container.appendChild(content);
+        }
+
+        function renderHeader() {
+            const header = document.createElement('div');
+            header.className = 'header';
+            header.innerHTML = `
+                <h1>🧠 Battelle – Profesores</h1>
+                <p>Cuestionario para profesorado: Personal/Social, Adaptativa y Comunicación</p>
+                <div class="alumno-info">
+                    <p><strong>Alumno/a:</strong> ${studentData.full_name || 'No especificado'}</p>
+                    <p><strong>Fecha:</strong> ${new Date().toLocaleDateString('es-ES')}</p>
+                    <p><strong>Edad (meses):</strong> ${ageInMonths}</p>
+                </div>
+            `;
+            return header;
+        }
+
+        function renderBlockView() {
+            const div = document.createElement('div');
+
+            const block = blocksData[currentBlockIndex];
+            const blockName = block.bloque;
+
+            const bloqueDiv = document.createElement('div');
+            bloqueDiv.className = 'bloque';
+
+            const headerDiv = document.createElement('div');
+            headerDiv.className = 'bloque-header';
+            headerDiv.textContent = blockName;
+            bloqueDiv.appendChild(headerDiv);
+
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'bloque-content';
+
+            const sectionItems = renderSectionItems(blockName, currentSectionNum);
+            contentDiv.appendChild(sectionItems);
+
+            bloqueDiv.appendChild(contentDiv);
+            div.appendChild(bloqueDiv);
+
+            const btnContainer = document.createElement('div');
+            btnContainer.className = 'btn-container';
+
+            if (!blockCompleted) {
+                if (isSectionCompleted(blockName, currentSectionNum)) {
+                    const btnValidate = document.createElement('button');
+                    btnValidate.className = 'btn-validate';
+                    btnValidate.textContent = '✓ Validar Respuestas';
+                    btnValidate.addEventListener('click', handleValidateSection);
+                    btnContainer.appendChild(btnValidate);
+                }
+            } else {
+                const btn = document.createElement('button');
+                
+                if (currentBlockIndex < blocksData.length - 1) {
+                    const nextBlockName = blocksData[currentBlockIndex + 1].bloque;
+                    btn.className = 'btn-next-block';
+                    btn.textContent = 'Continuar con bloque ' + nextBlockName;
+                    btn.addEventListener('click', () => {
+                        currentBlockIndex++;
+                        currentBlockName = blocksData[currentBlockIndex].bloque;
+                        currentSectionNum = initialSection[currentBlockName];
+                        blockCompleted = false;
+                        renderApp();
+                    });
+                } else {
+                    btn.className = 'btn-submit';
+                    btn.textContent = 'Enviar Evaluación';
+                    btn.addEventListener('click', handleSubmit);
+                }
+
+                btnContainer.appendChild(btn);
+            }
+
+            div.appendChild(btnContainer);
+
+            return div;
+        }
+
+        function renderSectionItems(blockName, sectionNum) {
+            const div = document.createElement('div');
+
+            const section = sectionsStructure[blockName][sectionNum];
+            if (!section) {
+                div.innerHTML = '<p>Error: Sección no encontrada.</p>';
+                return div;
+            }
+
+            const titleDiv = document.createElement('div');
+            titleDiv.className = 'seccion-title';
+            titleDiv.textContent = `Sección ${sectionNum} (Edad: ${section.umbralMin}-${section.umbralMax} meses)`;
+            div.appendChild(titleDiv);
+
+            section.items.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'item';
+
+                const preguntaDiv = document.createElement('div');
+                preguntaDiv.className = 'item-pregunta';
+                preguntaDiv.textContent = item.pregunta;
+                itemDiv.appendChild(preguntaDiv);
+
+                if (item.subseccion) {
+                    const infoDiv = document.createElement('div');
+                    infoDiv.className = 'item-info';
+                    infoDiv.textContent = `Subsección: ${item.subseccion}`;
+                    itemDiv.appendChild(infoDiv);
+                }
+
+                const opcionesDiv = document.createElement('div');
+                opcionesDiv.className = 'opciones';
+
+                ['2', '1', '0'].forEach(val => {
+                    const optionDiv = document.createElement('div');
+                    optionDiv.className = `radio-option opt-${val}`;
+
+                    const input = document.createElement('input');
+                    input.type = 'radio';
+                    input.name = `item-${item.id}`;
+                    input.value = val;
+                    input.id = `item-${item.id}-${val}`;
+
+                    const currentValue = responsesByBlock[blockName][item.id].value;
+                    if (currentValue === val) {
+                        input.checked = true;
+                    }
+
+                    input.addEventListener('change', () => {
+                        handleAnswerChange(blockName, item.id, val);
+                    });
+
+                    const label = document.createElement('label');
+                    label.setAttribute('for', input.id);
+                    label.textContent = val;
+
+                    optionDiv.appendChild(input);
+                    optionDiv.appendChild(label);
+                    opcionesDiv.appendChild(optionDiv);
+                });
+
+                itemDiv.appendChild(opcionesDiv);
+
+                const obsDiv = document.createElement('div');
+                obsDiv.className = 'observaciones';
+
+                const obsLabel = document.createElement('label');
+                obsLabel.setAttribute('for', `obs-${item.id}`);
+                obsLabel.textContent = 'Observaciones (opcional):';
+                obsDiv.appendChild(obsLabel);
+
+                const obsTextarea = document.createElement('textarea');
+                obsTextarea.id = `obs-${item.id}`;
+                obsTextarea.placeholder = 'Escribe aquí cualquier observación...';
+                obsTextarea.value = observationsByBlock[blockName][item.id] || '';
+                
+                obsTextarea.addEventListener('input', (e) => {
+                    observationsByBlock[blockName][item.id] = e.target.value;
+                });
+
+                obsDiv.appendChild(obsTextarea);
+                itemDiv.appendChild(obsDiv);
+
+                div.appendChild(itemDiv);
+            });
+
+            return div;
+        }
+
+        function handleAnswerChange(blockName, itemId, value) {
+            console.log(`[Battelle Profesores] Respuesta: Bloque=${blockName}, Item=${itemId}, Valor=${value}`);
+            responsesByBlock[blockName][itemId].value = value;
+            renderApp();
+        }
+
+        function isSectionCompleted(blockName, sectionNum) {
+            const section = sectionsStructure[blockName][sectionNum];
+            if (!section) return false;
+
+            return section.items.every(item => {
+                const resp = responsesByBlock[blockName][item.id];
+                return resp.value !== null;
+            });
+        }
+
+        function handleValidateSection() {
+            console.log('[Battelle Profesores] Validando sección:', currentSectionNum);
+
+            const section = sectionsStructure[currentBlockName][currentSectionNum];
+            const items = section.items;
+
+            const countTwos = items.filter(item => {
+                return responsesByBlock[currentBlockName][item.id].value === "2";
+            }).length;
+
+            console.log(`[Battelle Profesores] Sección ${currentSectionNum}: ${countTwos} de ${items.length} respuestas son "2"`);
+
+            if (countTwos === items.length) {
+                console.log('[Battelle Profesores] ✅ Todas las respuestas son "2" → Bloque completado');
+                blockCompleted = true;
+                renderApp();
+            } else {
+                console.log('[Battelle Profesores] ⚠️ Hay respuestas 0 o 1 → Intentando bajar a sección anterior');
+                
+                const sectionNums = Object.keys(sectionsStructure[currentBlockName])
+                    .map(k => parseInt(k, 10))
+                    .sort((a, b) => a - b);
+
+                const currentIndex = sectionNums.indexOf(currentSectionNum);
+                
+                if (currentIndex > 0) {
+                    currentSectionNum = sectionNums[currentIndex - 1];
+                    console.log('[Battelle Profesores] ⬇️ Bajando a sección:', currentSectionNum);
+                    renderApp();
+                } else {
+                    console.log('[Battelle Profesores] ⛔ Ya en la primera sección → Bloque completado');
+                    blockCompleted = true;
+                    renderApp();
+                }
+            }
+        }
+
+        function calculateScores() {
+            const scoresByBlock = {};
+            const scoresBySubblock = {};
+            let totalScore = 0;
+
+            blocksData.forEach(block => {
+                const blockName = block.bloque;
+                let blockScore = 0;
+
+                // Para este test de profesores no hay caso especial de Motricidad;
+                // si hay subsecciones (como en "Comunicacion"), se acumulan dinámicamente.
+                scoresBySubblock[blockName] = {};
+
+                block.items.forEach(item => {
+                    const resp = responsesByBlock[blockName][item.id];
+                    const score = parseInt(resp.value, 10) || 0;
+                    
+                    blockScore += score;
+
+                    if (item.subseccion) {
+                        scoresBySubblock[blockName][item.subseccion] = 
+                            (scoresBySubblock[blockName][item.subseccion] || 0) + score;
+                    }
+                });
+
+                scoresByBlock[blockName] = blockScore;
+                totalScore += blockScore;
+            });
+
+            console.log('[Battelle Profesores] Puntuaciones por bloque:', scoresByBlock);
+            console.log('[Battelle Profesores] Puntuaciones por subbloque:', scoresBySubblock);
+            console.log('[Battelle Profesores] Puntuación total:', totalScore);
+
+            return { scoresByBlock, scoresBySubblock, totalScore };
+        }
+
+        function buildPayload() {
+            const scores = calculateScores();
+
+            return {
+                student_id: studentData.id,
+                test_name: testName,
+                test_link: testLinkWithParams,
+                test_start_timestamp: testStartTimestamp,
+                raw_responses: responsesByBlock,
+                observations: observationsByBlock,
+                scores_by_block: scores.scoresByBlock,
+                scores_by_subblock: scores.scoresBySubblock,
+                total_score: scores.totalScore
+            };
+        }
+
+        async function handleSubmit() {
+            console.log('[Battelle Profesores] Enviando evaluación...');
+            
+            const btn = event.target;
+            btn.disabled = true;
+            btn.innerHTML = '<span class="loading"></span> Enviando...';
+
+            const payload = buildPayload();
+            console.log('[Battelle Profesores] Payload:', payload);
+
+            // Envío por formulario a iframe para evitar CORS con Google Apps Script
+            const isGoogleAppsScript = submitUrl && submitUrl.indexOf('script.google.com') !== -1;
+            if (isGoogleAppsScript) {
+                submitViaFormToIframe(payload, btn);
+                return;
+            }
+
+            try {
+                const response = await fetch(submitUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const rawText = await response.text();
+                if (rawText.trim().startsWith('<')) {
+                    console.error('[Battelle Profesores] El servidor devolvió HTML en lugar de JSON:', rawText.substring(0, 200));
+                    throw new Error('El servidor devolvió una página HTML en lugar de datos. Comprueba que la URL de envío (Google Apps Script o API) sea correcta y esté desplegada como "Aplicación web".');
+                }
+                let result;
+                try {
+                    result = JSON.parse(rawText);
+                } catch (e) {
+                    throw new Error('La respuesta del servidor no es JSON válido: ' + (e.message || e));
+                }
+                console.log('[Battelle Profesores] Respuesta del servidor:', result);
+
+                if (result.success) {
+                    showSuccess();
+                    
+                    if (window.parent !== window) {
+                        window.parent.postMessage({ type: 'EMOOTI_SUBMIT_SUCCESS' }, '*');
+                    }
+                } else {
+                    throw new Error(result.error || 'Error desconocido al enviar');
+                }
+            } catch (error) {
+                console.error('[Battelle Profesores] Error en envío:', error);
+                alert('Error al enviar la evaluación: ' + error.message);
+                btn.disabled = false;
+                btn.textContent = 'Enviar Evaluación';
+            }
+        }
+
+        function submitViaFormToIframe(payload, btn) {
+            const form = document.createElement('form');
+            form.setAttribute('method', 'POST');
+            form.setAttribute('action', submitUrl);
+            form.setAttribute('target', 'battelle-submit-iframe');
+            form.style.display = 'none';
+
+            const input = document.createElement('input');
+            input.setAttribute('name', 'payload');
+            input.setAttribute('type', 'hidden');
+            input.setAttribute('value', JSON.stringify(payload));
+            form.appendChild(input);
+
+            document.body.appendChild(form);
+            form.submit();
+            form.remove();
+
+            const timeoutMs = 30000;
+            
+            const assumeSuccessTimeout = setTimeout(function() {
+                console.log('[Battelle Profesores] 10 segundos sin error - Asumiendo éxito');
+                clearTimeout(timeoutId);
+                window.removeEventListener('message', onMessage);
+                showSuccess();
+            }, 10000);
+            
+            const timeoutId = setTimeout(function() {
+                clearTimeout(assumeSuccessTimeout);
+                window.removeEventListener('message', onMessage);
+                console.warn('[Battelle Profesores] Timeout después de 30 segundos');
+                
+                if (confirm('El envío tardó más de lo esperado.\n\n¿Los datos aparecen en tu Google Sheet?\n\nSi ya están guardados, haz click en OK.\nSi no, haz click en Cancelar para reintentar.')) {
+                    showSuccess();
+                } else {
+                    btn.disabled = false;
+                    btn.textContent = 'Reintentar Envío';
+                }
+            }, timeoutMs);
+
+            function onMessage(ev) {
+                console.log('[Battelle Profesores] Mensaje recibido:', ev.data);
+                
+                if (ev.data && ev.data.type === 'EMOOTI_SUBMIT_SUCCESS') {
+                    clearTimeout(timeoutId);
+                    clearTimeout(assumeSuccessTimeout);
+                    window.removeEventListener('message', onMessage);
+                    console.log('[Battelle Profesores] Confirmación recibida');
+                    showSuccess();
+                    if (window.parent !== window) {
+                        window.parent.postMessage({ type: 'EMOOTI_SUBMIT_SUCCESS' }, '*');
+                    }
+                } else if (ev.data && ev.data.type === 'EMOOTI_SUBMIT_ERROR') {
+                    clearTimeout(timeoutId);
+                    clearTimeout(assumeSuccessTimeout);
+                    window.removeEventListener('message', onMessage);
+                    console.error('[Battelle Profesores] Error recibido:', ev.data.message);
+                    alert('Error al enviar la evaluación: ' + (ev.data.message || 'Error desconocido'));
+                    btn.disabled = false;
+                    btn.textContent = 'Enviar Evaluación';
+                }
+            }
+
+            window.addEventListener('message', onMessage);
+        }
+
+
+        function showSuccess() {
+            const container = document.getElementById('app-container');
+            container.innerHTML = `
+                <div class="success-message">
+                    <h2>✅ Evaluación enviada correctamente</h2>
+                    <p>Los resultados han sido guardados en el sistema.</p>
+                </div>
+            `;
+        }
+
+        function showError(message) {
+            const container = document.getElementById('app-container');
+            container.innerHTML = `
+                <div class="error-message">
+                    <h3>❌ Error</h3>
+                    <p>${message}</p>
+                </div>
+            `;
+        }
+
+        window.addEventListener('DOMContentLoaded', init);
+
+    })();
     </script>
+<script>
+(function(){
+  // Restaurar addEventListener para no interferir con el resto
+  if (window.__BATTELLE__ && typeof window.__BATTELLE__.restoreAddEventListener === "function") {
+    window.__BATTELLE__.restoreAddEventListener();
+  }
+
+  function safeParseJSON(id){
+    const el = document.getElementById(id);
+    if(!el) return null;
+    try { return JSON.parse(el.textContent); } catch(e){ return null; }
+  }
+
+  function escapeHtml(str){
+    return String(str)
+      .replace(/&/g,"&amp;")
+      .replace(/</g,"&lt;")
+      .replace(/>/g,"&gt;")
+      .replace(/"/g,"&quot;")
+      .replace(/'/g,"&#039;");
+  }
+
+  function renderStudentSelect(){
+    const container = document.getElementById("app-container");
+    if(!container) return;
+
+    // Cargar configuración del test desde JSON embebido (si no existe ya)
+    if (!window.EMOOTI_CONTEXT) window.EMOOTI_CONTEXT = {};
+    if (!window.EMOOTI_CONTEXT.configuration) {
+      const cfg = safeParseJSON("BATTELLE_CONFIG_JSON");
+      if (cfg) window.EMOOTI_CONTEXT.configuration = cfg;
+    }
+
+    const students = (window.EMOOTI_CONTEXT.students && Array.isArray(window.EMOOTI_CONTEXT.students))
+      ? window.EMOOTI_CONTEXT.students
+      : (window.STUDENTS && Array.isArray(window.STUDENTS) ? window.STUDENTS : []);
+
+    container.innerHTML = `
+      <div class="header">
+        <h1>🧠 Battelle – Profesores</h1>
+        <p>Selecciona el alumno/a para comenzar (la edad se carga automáticamente).</p>
+
+        <div class="age-input-section" style="text-align:left;">
+          <label for="student-select">Alumno/a</label>
+          <select id="student-select" style="width:100%; padding:10px; border-radius:8px; border:none; font-size:1.1em; text-align:left;">
+            <option value="">— Selecciona —</option>
+            ${students.map(s => `<option value="${String(s.id).replace(/"/g,'&quot;')}">${escapeHtml(s.full_name || s.name || String(s.id))}</option>`).join("")}
+          </select>
+
+          <label for="student-age" style="margin-top:12px;">Edad (meses)</label>
+          <input id="student-age" type="number" readonly placeholder="Se rellenará al seleccionar" style="text-align:left;" />
+
+          <button id="continue-btn" disabled>Continuar</button>
+          <div id="student-toast" style="display:none; margin-top:10px; font-size:0.95em; color:#fff; background:rgba(0,0,0,0.25); padding:10px; border-radius:8px;"></div>
+        </div>
+      </div>
+    `;
+
+    const sel = document.getElementById("student-select");
+    const age = document.getElementById("student-age");
+    const btn = document.getElementById("continue-btn");
+    const toast = document.getElementById("student-toast");
+
+    function showToast(msg){
+      if(!toast) return;
+      toast.textContent = msg;
+      toast.style.display = "block";
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(()=> toast.style.display="none", 2500);
+    }
+
+    sel.addEventListener("change", () => {
+      const id = sel.value;
+      const st = students.find(s => String(s.id) === String(id));
+      if(!st){
+        age.value = "";
+        btn.disabled = true;
+        return;
+      }
+      const months = (st.ageMonths != null) ? Number(st.ageMonths) :
+                     (st.age_in_months != null) ? Number(st.age_in_months) :
+                     (st.age_months != null) ? Number(st.age_months) : NaN;
+
+      if(!Number.isFinite(months)){
+        age.value = "";
+        btn.disabled = true;
+        showToast("Este alumno no tiene edad en meses. Añádela en la lista.");
+        return;
+      }
+
+      age.value = String(months);
+      btn.disabled = false;
+
+      // Guardar contexto para el cuestionario (lo leerá el init original)
+      window.EMOOTI_CONTEXT.student = {
+        id: st.id,
+        full_name: st.full_name || st.name || "",
+        age_in_months: months,
+        className: st.className || ""
+      };
+    });
+
+    btn.addEventListener("click", () => {
+      if(btn.disabled) return;
+      if(!window.EMOOTI_CONTEXT || !window.EMOOTI_CONTEXT.student){
+        showToast("Selecciona un alumno para continuar.");
+        return;
+      }
+      runDeferredInit();
+    });
+  }
+
+  function runDeferredInit(){
+    const q = window.__BATTELLE__ && window.__BATTELLE__.domReadyQueue ? window.__BATTELLE__.domReadyQueue : [];
+    if(!q.length){
+      console.warn("[Battelle Profesores] No se encontró init diferido.");
+      return;
+    }
+    q.forEach(({listener}) => {
+      try { listener(); } catch(e){ console.error(e); }
+    });
+    q.length = 0;
+  }
+
+  function start(){
+    renderStudentSelect();
+  }
+
+  if (document.readyState === "loading") {
+    window.addEventListener("DOMContentLoaded", start);
+  } else {
+    start();
+  }
+})();
+</script>
+
 </body>
 </html>
